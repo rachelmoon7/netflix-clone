@@ -8,6 +8,7 @@ const Profile = () => {
     const [filteredData, setFilteredData] = useState([]);
     
     const handleSearch = (query) => {
+        // using .filter to see if it includes query to see if it should be in the new array or not
         const filtered = data.filter(item => item.includes(query));
         setFilteredData(filtered);
     }
@@ -17,6 +18,7 @@ const Profile = () => {
         <ProfileHeader />
         <SearchBar onSearch={handleSearch}/>
         <ul>
+            {/* using .map since we're making each element a list item */}
             {filteredData.map(item => (
                 <li key={item}>{item}</li>
             ))}
