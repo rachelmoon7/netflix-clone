@@ -52,7 +52,7 @@ const Landing = () => {
                                                     placeholder="Email address"
                                                     onChange={(e)=>{setEmail(e.target.value)}}></input>
                                         </label>
-                                        <Link to='/signUp'
+                                        <Link to='/stepOne'
                                             state={{ email: email }} >
                                             <Button onClick={() => {setShowSignUp(true); setShowGetStarted(false); console.log("email:", email)}}>Get Started</Button>
                                         </Link>

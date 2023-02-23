@@ -4,7 +4,10 @@ import { BrowserRouter as Router, Routes, Route, useRoutes } from 'react-router-
 
 import Landing from './containers/Landing/Landing.jsx';
 import Login from './containers/Login/Login.jsx';
+import Step1 from './containers/SignUp/Directions/Step1.jsx';
 import SignUp from './containers/SignUp/SignUp.jsx';
+import ChooseProfile from './containers/ChooseProfile/ChooseProfile.jsx';
+import Profile from './containers/Profile/Profile.jsx';
 
 
 
@@ -14,7 +17,11 @@ const App = () => {
         <Routes>
             <Route exact path='/' element={<Landing />} />
             <Route exact path='/login' element={<Login />} />
+            <Route path='/stepOne' element={<Step1 />} />
             <Route exact path='/signup' element={<SignUp />} />
+            <Route exact path='/chooseProfile' element={<ChooseProfile />} />
+            <Route exact path='/profile' element={<Profile />} />
+
         </Routes>
     );
 }

@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import { useLocation } from 'react-router-dom'
+import { Container, Row, Col, Form, Card, CardBody } from "reactstrap";
+
 
 const SignUp = (props) => {
     const [name, setName] = useState("");
@@ -7,8 +9,8 @@ const SignUp = (props) => {
     const [message, setMessage] = useState("");
 
     const location = useLocation();
-    
     const { email } = location.state
+
 
     let handleSubmit = (e) => {
         e.preventDefault();
@@ -45,7 +47,7 @@ const SignUp = (props) => {
     }
     return (
         <>
-            {/* <form onSubmit={handleSubmit}> */}
+        <Container>
                 <input
                     type="text"
                     value={name}
@@ -68,7 +70,7 @@ const SignUp = (props) => {
                     : null
                     }
                 </div>
-            {/* </form> */}
+        </Container>
         </>
     )
 }

@@ -17,16 +17,21 @@ const Navbar = () => {
     return (
         <>
         <h1> NETFLIX CLONE </h1>
-        <nav className="navBar">
+        {/* <nav className="navBar">
             {auth ? (
                     <ChooseProfile />
                 ) : (
-                    <Link to='/login'>
+                    <Link to='/login'
+                            >
                         <Button variant="danger">Sign In</Button>
                     </Link>
                 )}
         </nav>
+         */}
         
+        <Link to='/login'>
+            <Button variant="danger">Sign In</Button>
+        </Link>
         </>
     )
 }

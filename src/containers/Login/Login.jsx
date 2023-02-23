@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useLocation } from "react-router-dom";
 import { Button } from 'react-bootstrap';
 import {
     Form,
@@ -13,13 +14,21 @@ import Landing from '../Landing/Landing.jsx';
 import './Login.css';
 
 const Login = (props) => {
+    const [auth, setAuth] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
     const [backtoLanding, setBackToLanding] = useState(false);
-    
+
+    // const location = useLocation();
+    // console.log("location:", location)
+
+    // const { setAuth } = location.state;
+    // console.log("?????", {setAuth})
+
     let login = (e) => {
-        props.setAuth(true);
+        setAuth(true);
+
         try {
             fetch("http://localhost:8080/login", {
                 mode: 'cors',
@@ -77,12 +86,15 @@ const Login = (props) => {
                                                 />
                                             </div>
                                             <div>
-                                                <Button color="danger"
-                                                        type="submit" 
-                                                        className="btn btn-primary"
-                                                        onClick={() => {login({email}, {password})}}>
-                                                    Submit
-                                                </Button>
+                                                {/* need to fix login in determining if use if authorized, but for now, authorize */}
+                                                <Link to="/chooseProfile" >
+                                                    <Button color="danger"
+                                                            type="submit" 
+                                                            className="btn btn-primary"
+                                                            onClick={() => {login({email}, {password})}}>
+                                                        Submit
+                                                    </Button>
+                                                </Link>
                                             </div>
                                             <p>
                                                 New to Netflix?
@@ -101,6 +113,7 @@ const Login = (props) => {
                     <Col />
                 </Row>
             </Container>
+
     </div>
     )
 }

@@ -1,0 +1,10 @@
+
+.chooseProfile {
+  background-color: black;
+  height: 100vh; 
+  width: 100vw; 
+}
+
+.profile-name {
+  color: white;
+}
