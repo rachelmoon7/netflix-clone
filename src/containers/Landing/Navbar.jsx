@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useRoutes, useNavigate } 
 import Login from '../Login/Login.jsx';
 import SignUp from '../SignUp/SignUp.jsx';
 import ChooseProfile from '../ChooseProfile/ChooseProfile.jsx';
+import './Navbar.css';
 
 const Navbar = () => {
 
@@ -15,7 +16,8 @@ const Navbar = () => {
 
     return (
         <>
-        <nav>
+        <h1> NETFLIX CLONE </h1>
+        <nav className="navBar">
             {auth ? (
                     <ChooseProfile />
                 ) : (

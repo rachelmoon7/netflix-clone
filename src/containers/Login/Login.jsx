@@ -50,54 +50,54 @@ const Login = (props) => {
             <Container>
                 <Row>
                     <Col />
-                    <Col lg="8">
-                        <Form className="form">
-                            <h1>Sign In</h1>
-                            <Card>
-                                <CardBody>
-                                    <FormGroup className="pb-2 mr-sm-2 mb-sm-0">
-                                        <div className="form-group mt-3">
-                                            <Label for="email" className="mr-sm-2">Email</Label>
-                                            <input 
-                                                type = "email"
-                                                className="form-control mt-1"
-                                                placeholder="Enter email"
-                                                onChange={(e)=>{setEmail(e.target.value)}}
-                                            />
-                                        </div>
-                                    </FormGroup>
-                                    <FormGroup className="pb-2 mr-sm-2 mb-sm-0">
-                                        <div className="form-group mt-3">
-                                            <Label>Password</Label>
-                                            <input 
-                                                type = "password"
-                                                className="form-control mt-1"
-                                                placeholder="Enter password"
-                                                onChange={(e)=>{setPassword(e.target.value)}}
-                                            />
-                                        </div>
-                                        <div>
-                                            <Button color="danger"
-                                                    type="submit" 
-                                                    className="btn btn-primary"
-                                                    onClick={() => {login({email}, {password})}}>
-                                                Submit
-                                            </Button>
-                                        </div>
-                                        <p>
-                                            New to Netflix?
-                                            <Link to="/" >
-                                                <Button variant="secondary"
-                                                type="submit"
-                                                className="btn btn-secondary"
-                                                onClick={() => props.setSignInButton(false)}>Sign Up Now</ Button>
-                                            </Link>
-                                        </p>
-                                    </FormGroup>
-                                </CardBody>
-                            </Card>
-                        </Form>
-                    </Col>
+                        <Col lg="8">
+                            <Form className="form">
+                                <h1>Sign In</h1>
+                                <Card>
+                                    <CardBody>
+                                        <FormGroup className="pb-2 mr-sm-2 mb-sm-0">
+                                            <div className="form-group mt-3">
+                                                <Label for="email" className="mr-sm-2">Email</Label>
+                                                <input 
+                                                    type = "email"
+                                                    className="form-control mt-1"
+                                                    placeholder="Enter email"
+                                                    onChange={(e)=>{setEmail(e.target.value)}}
+                                                />
+                                            </div>
+                                        </FormGroup>
+                                        <FormGroup className="pb-2 mr-sm-2 mb-sm-0">
+                                            <div className="form-group mt-3">
+                                                <Label>Password</Label>
+                                                <input 
+                                                    type = "password"
+                                                    className="form-control mt-1"
+                                                    placeholder="Enter password"
+                                                    onChange={(e)=>{setPassword(e.target.value)}}
+                                                />
+                                            </div>
+                                            <div>
+                                                <Button color="danger"
+                                                        type="submit" 
+                                                        className="btn btn-primary"
+                                                        onClick={() => {login({email}, {password})}}>
+                                                    Submit
+                                                </Button>
+                                            </div>
+                                            <p>
+                                                New to Netflix?
+                                                <Link to="/" >
+                                                    <Button variant="secondary"
+                                                    type="submit"
+                                                    className="btn btn-secondary"
+                                                    onClick={() => props.setSignInButton(false)}>Sign Up Now</ Button>
+                                                </Link>
+                                            </p>
+                                        </FormGroup>
+                                    </CardBody>
+                                </Card>
+                            </Form>
+                        </Col>
                     <Col />
                 </Row>
             </Container>

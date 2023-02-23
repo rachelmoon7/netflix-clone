@@ -1,9 +1,14 @@
 import React, {useState} from 'react';
+import { useLocation } from 'react-router-dom'
 
 const SignUp = (props) => {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
+
+    const location = useLocation();
+    
+    const { email } = location.state
 
     let handleSubmit = (e) => {
         e.preventDefault();
@@ -14,7 +19,7 @@ const SignUp = (props) => {
                 method: "POST",
                 body: JSON.stringify({
                     name: name,
-                    email: props.email,
+                    email: { email },
                     password: password
                 })
             })
@@ -49,8 +54,7 @@ const SignUp = (props) => {
                 />
                 <input
                     type="text"
-                    value={props.email}
-                    // onChange={( (e) => setEmail(e.target.value))} 
+                    value={email}
                 /> 
                 <input
                     type="text"
