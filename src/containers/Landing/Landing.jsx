@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // import { Switch } from 'react-router';
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
-  import { Container, Row, Col, Form, Card, CardBody } from "reactstrap";
+import { Container, Row, Col, Form, Card, CardBody } from "reactstrap";
 
 import Navbar from './Navbar.jsx';
 import './Landing.css';
