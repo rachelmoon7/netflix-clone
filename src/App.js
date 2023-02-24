@@ -16,14 +16,15 @@ const App = () => {
 
     return (
         <Routes>
-            <Route exact path='/' element={<Landing />} />
-            <Route exact path='/login' element={<Login />} />
-            <Route path='/stepOne' element={<Step1 />} />
-            <Route exact path='/signup' element={<SignUp />} />
-            <Route exact path='/chooseProfile' element={<ChooseProfile />} />
-            <Route exact path='/profile' element={<Profile />} />
-            <Route path='/donate' element={<DonationForm />} />
-
+            <>
+                <Route exact path='/' element={<Landing />} />
+                <Route exact path='/login' element={<Login />} />
+                <Route path='/stepOne' element={<Step1 />} />
+                <Route exact path='/signup' element={<SignUp />} />
+                <Route exact path='/chooseProfile' element={<ChooseProfile />} />
+                <Route exact path='/profile' element={<Profile />} />
+                <Route path='/donate' element={<DonationForm />} />
+            </>
         </Routes>
     );
 }
