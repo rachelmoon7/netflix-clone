@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import { useLocation } from "react-router-dom";
 import { Button } from 'react-bootstrap';
 import {
     Form,
@@ -20,11 +19,6 @@ const Login = (props) => {
     const [message, setMessage] = useState("");
     const [backtoLanding, setBackToLanding] = useState(false);
 
-    // const location = useLocation();
-    // console.log("location:", location)
-
-    // const { setAuth } = location.state;
-    // console.log("?????", {setAuth})
 
     let login = (e) => {
         setAuth(true);

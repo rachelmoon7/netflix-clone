@@ -8,7 +8,9 @@ import Step1 from './containers/SignUp/Directions/Step1.jsx';
 import SignUp from './containers/SignUp/SignUp.jsx';
 import ChooseProfile from './containers/ChooseProfile/ChooseProfile.jsx';
 import Profile from './containers/Profile/Profile.jsx';
-import DonationForm from './containers/Profile/Donate/DonationForm.jsx'
+import DonationForm from './containers/Profile/Donate/DonationForm.jsx';
+import TodoList from './containers/Profile/Todo/TodoList.jsx';
+import AddTask from './containers/Profile/Todo/AddTask.jsx'
 
 
 
@@ -24,6 +26,9 @@ const App = () => {
                 <Route exact path='/chooseProfile' element={<ChooseProfile />} />
                 <Route exact path='/profile' element={<Profile />} />
                 <Route path='/donate' element={<DonationForm />} />
+
+                <Route path='/todo' element={<TodoList />} />
+
             </>
         </Routes>
     );
