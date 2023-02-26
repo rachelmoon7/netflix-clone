@@ -12,8 +12,8 @@ const ToDoList = (props) => {
     const { date } = location.state;
     
     console.log("currentList:",allLists )
-    const todosForSelectedDate = currentList.filter(currentList => isSameDay(currentList.date, date));
-    console.log("$$todosForSelectedDate$$$$", todosForSelectedDate)
+    // const todosForSelectedDate = currentList.filter(currentList => isSameDay(currentList.date, date));
+    // console.log("$$todosForSelectedDate$$$$", todosForSelectedDate)
 
 
     const updateList = (item) => {
@@ -32,11 +32,11 @@ const ToDoList = (props) => {
             <AddTask updateList={updateList}
                         date={{ date }}/>
             {currentList.map((task) => <li>{task}</li>)}
-            <ul>
+            {/* <ul>
                 {todosForSelectedDate.map(todo => (
                     <li key={todo.id}>{todo.text}</li>
                 ))}
-            </ul>
+            </ul> */}
         </>
     )
 }
