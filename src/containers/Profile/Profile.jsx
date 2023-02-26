@@ -6,7 +6,8 @@ import { Button } from 'react-bootstrap';
 
 import ProfileHeader from './Header/ProfileHeader';
 import SearchBar from './SearchBar/SearchBar.jsx';
-import Schedule from './Schedule/Schedule.jsx'
+import Schedule from './Schedule/Schedule.jsx';
+
 const Profile = () => {
     const [data, setData] = useState(['apple', 'banana', 'orange']);
     const [filteredData, setFilteredData] = useState([]);

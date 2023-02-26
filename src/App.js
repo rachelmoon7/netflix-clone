@@ -12,7 +12,7 @@ import DonationForm from './containers/Profile/Donate/DonationForm.jsx';
 import TodoList from './containers/Profile/Todo/TodoList.jsx';
 import AddTask from './containers/Profile/Todo/AddTask.jsx'
 
-
+import 'react-calendar/dist/Calendar.css';
 
 const App = () => {
 
@@ -26,7 +26,6 @@ const App = () => {
                 <Route exact path='/chooseProfile' element={<ChooseProfile />} />
                 <Route exact path='/profile' element={<Profile />} />
                 <Route path='/donate' element={<DonationForm />} />
-
                 <Route path='/todo' element={<TodoList />} />
 
             </>
