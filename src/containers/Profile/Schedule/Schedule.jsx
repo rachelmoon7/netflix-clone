@@ -24,6 +24,8 @@ const Schedule = () => {
                   state={{date: date}}>
                 <Button>Create To-Do List for this date</Button>
             </Link>
+
+            
         </div>
     )
 }
