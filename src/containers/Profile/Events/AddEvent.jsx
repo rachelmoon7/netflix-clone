@@ -16,18 +16,8 @@ const AddEvent = (props) => {
     const [eventTime, setEventTime] = useState('');
     const [eventCity, setEventCity] = useState('');
     const [addNewEvent, setAddNewEvent] = useState(false);
-    // const location = useLocation();
-    // console.log("??", location)
-    // const setEvents = location.state.setEvents;
-    // console.log("add events props:", props)
-    // const handlSubmit = () => {
-    //     // console.log("want to add:", {eventName})
-    //     // props.setEvents([{"name": eventName, "max_capacity": maxCapacity, "date": eventDate, "time": eventTime, "city": eventCity}, ...props.events])
-    //     setAddNewEvent(true);
-    // }
     
     useEffect(() => {
-        console.log("in addevent: eventName", eventName)
         const postData = {"name": eventName, "max_capacity": maxCapacity, "date": eventDate, "time": eventTime, "city": eventCity};
         if (eventName != '') {
         fetch('http://localhost:8080/addEvent', {

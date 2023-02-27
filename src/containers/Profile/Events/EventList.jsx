@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap';
 
 const EventList = (props) => {
     // console.log("event list props:", props.events)
-
+// props.setEventDeleted
     return (
         <div>
             {/* {console.log("??", events)} */}
@@ -19,7 +19,8 @@ const EventList = (props) => {
                                 max_capacity={event.max_capacity}
                                 city={event.city}
                                 time={event.time}
-                                date={event.date}  />
+                                date={event.date}
+                                setEventDeleted={props.setEventDeleted}  />
                         </CardBody>
                     </Card>
                 </Container>
