@@ -10,7 +10,7 @@ import ChooseProfile from './containers/ChooseProfile/ChooseProfile.jsx';
 import Profile from './containers/Profile/Profile.jsx';
 import DonationForm from './containers/Profile/Donate/DonationForm.jsx';
 import TodoList from './containers/Profile/Todo/TodoList.jsx';
-import AddTask from './containers/Profile/Todo/AddTask.jsx'
+import AddEvent from './containers/Profile/Events/AddEvent.jsx'
 
 import 'react-calendar/dist/Calendar.css';
 
@@ -27,7 +27,7 @@ const App = () => {
                 <Route exact path='/profile' element={<Profile />} />
                 <Route path='/donate' element={<DonationForm />} />
                 <Route path='/todo' element={<TodoList />} />
-
+                <Route path='/addEvent' element={<AddEvent />} />
             </>
         </Routes>
     );
