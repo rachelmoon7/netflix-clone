@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 const EventList = (props) => {
-    console.log("event list props:", props.events)
+    // console.log("event list props:", props.events)
 
     return (
         <div>
@@ -15,11 +15,11 @@ const EventList = (props) => {
                 <Container>
                     <Card>
                         <CardBody>
-                        <Event name={event.name}
-                            max_capacity={event.max_capacity}
-                            city={event.city}
-                            time={event.time}
-                            date={event.date}  />
+                            <Event name={event.name}
+                                max_capacity={event.max_capacity}
+                                city={event.city}
+                                time={event.time}
+                                date={event.date}  />
                         </CardBody>
                     </Card>
                 </Container>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
 
@@ -15,13 +15,35 @@ const AddEvent = (props) => {
     const [eventDate, setEventDate] = useState('');
     const [eventTime, setEventTime] = useState('');
     const [eventCity, setEventCity] = useState('');
-
-    const location = useLocation();
-    console.log("??", location)
+    const [addNewEvent, setAddNewEvent] = useState(false);
+    // const location = useLocation();
+    // console.log("??", location)
     // const setEvents = location.state.setEvents;
-    const handlSubmit = () => {
-
-    }
+    // console.log("add events props:", props)
+    // const handlSubmit = () => {
+    //     // console.log("want to add:", {eventName})
+    //     // props.setEvents([{"name": eventName, "max_capacity": maxCapacity, "date": eventDate, "time": eventTime, "city": eventCity}, ...props.events])
+    //     setAddNewEvent(true);
+    // }
+    
+    useEffect(() => {
+        console.log("in addevent: eventName", eventName)
+        const postData = {"name": eventName, "max_capacity": maxCapacity, "date": eventDate, "time": eventTime, "city": eventCity};
+        if (eventName != '') {
+        fetch('http://localhost:8080/addEvent', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(postData)
+        })
+          .then(response => response.json())
+          .then(data => console.log(data))
+          .then(()=> props.setNewEventAdded(true))
+          .then(props.setShowAddEvent(false))
+          .catch(error => console.error(error));
+      }
+        } , [addNewEvent]); 
 
     return (
        <Form>
@@ -66,7 +88,7 @@ const AddEvent = (props) => {
                 />
             </div>
             <div>
-                <Button onClick={handlSubmit} > ADD</Button>
+                <Button onClick={() => {setAddNewEvent(true)}} > ADD</Button>
             </div>
        </Form> 
     )

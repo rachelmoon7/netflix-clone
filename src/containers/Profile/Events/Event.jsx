@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 
 
 const Event = (props) => {
-    console.log("baby event props:", props)
+    // console.log("baby event props:", props)
     return (
         <>
         <div>{props.name}</div>

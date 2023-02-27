@@ -17,20 +17,25 @@ const Profile = () => {
     const [filteredData, setFilteredData] = useState([]);
     const [showAddEvent, setShowAddEvent] = useState(false);
     const [events, setEvents] = useState([]);
+    const [newEventAdded, setNewEventAdded] = useState(false)
 
     const handleSearch = (query) => {
         // using .filter to see if it includes query to see if it should be in the new array or not
         const filtered = fruits.filter(item => item.includes(query));
         setFilteredData(filtered);
     }
+    console.log("newEventAdded before:", newEventAdded)
 
     useEffect(() => {
         fetch('http://localhost:8080/getAllEvents')
         .then(response => response.json())
         .then(data => setEvents(data.response))
         .catch(error => console.error(error))
-    }, []);
+        .then(console.log("newEventAdded after:", newEventAdded))
+    }, [newEventAdded]);
 
+
+      
     return (
         <>
         <ProfileHeader />
@@ -54,7 +59,10 @@ const Profile = () => {
         </Container>
         <Container>
             {showAddEvent ? (
-                <AddEvent />
+                <AddEvent setEvents={setEvents}
+                            events={events}
+                            setNewEventAdded={setNewEventAdded}
+                            setShowAddEvent={setShowAddEvent}/>
             ):(
                 null
             )}
