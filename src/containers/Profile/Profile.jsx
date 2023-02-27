@@ -21,8 +21,16 @@ const Profile = () => {
     const [eventDeleted, setEventDeleted] = useState(false);
 
     const handleSearch = (query) => {
-        // using .filter to see if it includes query to see if it should be in the new array or not
-        const filtered = fruits.filter(item => item.includes(query));
+        console.log("all events:", events)
+        // const eventNames = events.map(item => item.name );
+        const eventNames = filteredEvents.map(item => {
+            if (item.name != null) {
+              return item.name;
+            } else {
+              return 'none'; // or some other element to render
+            }
+          })
+        const filtered = eventNames.filter(item => item.includes(query));
         setFilteredData(filtered);
     }
     console.log("newEventAdded before:", newEventAdded)
@@ -32,10 +40,12 @@ const Profile = () => {
         .then(response => response.json())
         .then(data => setEvents(data.response))
         .catch(error => console.error(error))
-        .then(console.log("newEventAdded after:", newEventAdded))
+        .then(setEvents(() => events.filter(Boolean)))
+        .then(console.log("evnets? what ::", events))
     }, [newEventAdded, eventDeleted]);
 
-      
+    const filteredEvents = events.filter(item => item.name !== null);
+
     return (
         <>
         <ProfileHeader />
@@ -69,7 +79,7 @@ const Profile = () => {
         </Container>
         <Container>
             <Button onClick={()=> setShowAddEvent(true)}>Add Event</Button>
-            <EventList events={events}
+            <EventList events={filteredEvents}
                         setEventDeleted={setEventDeleted}/>
         </Container>
         

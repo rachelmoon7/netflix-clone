@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 const SearchBar = (props) => {
     const [searchQuery, setSearchQuery] = useState('');
 
-    function handleSearch(event) {
+    const handleSearch = (event) => {
         event.preventDefault();
         props.onSearch(searchQuery);
       }
     
-    function handleInputChange(event) {
+    const handleInputChange = (event) => {
         setSearchQuery(event.target.value);
       }
 
