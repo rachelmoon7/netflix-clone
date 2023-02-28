@@ -21,7 +21,7 @@ const Profile = () => {
     const [eventDeleted, setEventDeleted] = useState(false);
 
     const handleSearch = (query) => {
-        console.log("all events:", events)
+        // console.log("all events:", events)
         // const eventNames = events.map(item => item.name );
         const eventNames = filteredEvents.map(item => {
             if (item.name != null) {
@@ -33,7 +33,6 @@ const Profile = () => {
         const filtered = eventNames.filter(item => item.includes(query));
         setFilteredData(filtered);
     }
-    console.log("newEventAdded before:", newEventAdded)
 
     useEffect(() => {
         fetch('http://localhost:8080/getAllEvents')
@@ -65,7 +64,7 @@ const Profile = () => {
         </Container>
 
         <Container>
-            <Schedule />
+            <Schedule events={events}/>
         </Container>
         <Container>
             {showAddEvent ? (
