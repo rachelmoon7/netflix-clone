@@ -17,6 +17,10 @@ const AddEvent = (props) => {
     const [eventCity, setEventCity] = useState('');
     const [addNewEvent, setAddNewEvent] = useState(false);
     
+    const handleAdd = (e) => {
+        e.preventDefault(); setAddNewEvent(true)
+    }
+    
     useEffect(() => {
         const postData = {"name": eventName, "max_capacity": maxCapacity, "date": eventDate, "time": eventTime, "city": eventCity};
         if (eventName != '') {
@@ -38,47 +42,59 @@ const AddEvent = (props) => {
     return (
        <Form>
            <div>
+            <label htmlFor="name">Name:</label>
                 <input
                         type="text"
                         value={eventName}
                         placeholder="Enter Event Name"
-                        onChange={( (e) => setEventName(e.target.value))} 
+                        onChange={(e) => setEventName(e.target.value)} 
+                        required
                 />
             </div>
+
             <div>
-                <input
+            <label htmlFor="capacity">Max Capacity:</label>
+                <input 
                         type="text"
                         value={maxCapacity}
                         placeholder="Enter Event Max Capacity"
-                        onChange={( (e) => setMaxCapacity(e.target.value))} 
+                        onChange={(e) => setMaxCapacity(e.target.value)} 
+                        required
                 />
             </div>
             <div>
+            <label htmlFor="date">Date:</label>
                 <input
                         type="text"
                         value={eventDate}
                         placeholder="Enter Event Date"
-                        onChange={( (e) => setEventDate(e.target.value))} 
+                        onChange={(e) => setEventDate(e.target.value)} 
+                        required
                 />
             </div>
             <div>
+            <label htmlFor="time">Time: </label>
                 <input
                         type="text"
                         value={eventTime}
                         placeholder="Enter Event Time"
-                        onChange={( (e) => setEventTime(e.target.value))} 
+                        onChange={(e) => setEventTime(e.target.value)}
+                        required 
                 />
             </div>
             <div>
+            <label htmlFor="city">City: </label>
+
                 <input
                         type="text"
                         value={eventCity}
                         placeholder="Enter Event City"
-                        onChange={( (e) => setEventCity(e.target.value))} 
+                        onChange={(e) => setEventCity(e.target.value)} 
+                        required
                 />
             </div>
             <div>
-                <Button onClick={() => {setAddNewEvent(true)}} > ADD</Button>
+                <button onClick={handleAdd} > ADD </button>
             </div>
        </Form> 
     )
