@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 const Event = (props) => {
     // console.log("baby event props:", props)
     // this component has props.setEventDeleted which will trigger useeffect in parent, profile
-
+    // console.log("evnet props after click 23rd:", props)
     const handleDelete = () => {
         fetch(`http://localhost:8080/deleteEvent`, {
           method: 'POST',

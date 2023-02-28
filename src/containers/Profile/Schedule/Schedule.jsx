@@ -35,27 +35,32 @@ const Schedule = (props) => {
     const eventDates = props.events.map(event => event.date)
     // const eventName = props.events.map(event => event.name)
 
-    const dateArr = date.toDateString().split(' ')
-    let formattedDate = [months[dateArr[1]], dateArr[2], dateArr[3]]
-    const selectedDate = formattedDate.join('/')
-    // console.log("what is date:", selectedDate)
-    console.log("**", eventDates[6]== selectedDate)
-
-    const handleSelect = () => {
+    const handleSelect = (date) => {
         //START HERE LINE 46 PRINTS FALSE BUT SHOULD BE TRUE
-        console.log("what is date", eventDates.includes(selectedDate))
+        setDate(date)
+
+        const dateArr = date.toDateString().split(' ')
+        let formattedDate = [months[dateArr[1]], dateArr[2], dateArr[3]]
+        const selectedDate = formattedDate.join('/')
+
         if (eventDates.includes(selectedDate)) {
             setShowEvent(true);
+
+            console.log("props.events:", props.events)
             console.log("$$$", showEvent)
-            for (let event in props.events) {
-                if (props.events.date == selectedDate) {
-                    setName(props.events.name);
-                    setMaxCapacity(props.events.maxCapacity);
-                    setEventDate(props.events.date);
-                    setEventTime(props.events.time);
-                    setEventCity(props.events.city);
-                }
-            }
+            
+            // for (const event in props.events) {
+                props.events.map((event) => {
+                console.log("what is event:", event)
+                if (event.date == selectedDate) {
+                    console.log("entering if")
+                    setName(event.name);
+                    setMaxCapacity(event.maxCapacity);
+                    setEventDate(event.date);
+                    setEventTime(event.time);
+                    setEventCity(event.city);
+                } 
+            })
         }
     }
 
@@ -63,8 +68,8 @@ const Schedule = (props) => {
         <div className="calendar">
             <h1>Calendar</h1>
             <div className="calendar-container">
-                <Calendar onChange={setDate}
-                onClickDay={handleSelect}
+                <Calendar onChange={handleSelect}
+                // onClickDay={handleSelect}
                             value={date}
                             setRange={true}
                             
