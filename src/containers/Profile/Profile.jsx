@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Form, Card, CardBody } from "reactstrap";
 import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
-
+// import { Button } from 'react-bootstrap';
+import Button from '@mui/material/Button';
 
 import ProfileHeader from './Header/ProfileHeader';
 import SearchBar from './SearchBar/SearchBar.jsx';
@@ -58,13 +58,25 @@ const Profile = () => {
             </ul>
         </Container>
         <Container>
-            <Link to='/donate' >
-                <Button>Donate</Button>
-            </Link>
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <Link to='/donate' >
+                    <Button>Donate</Button>
+                </Link>
+            </div>
+            
         </Container>
 
         <Container>
-            <Schedule events={events}/>
+            <div
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    height: "100%"
+                }}>
+                <Schedule events={events}/>
+            </div>
+            
         </Container>
         <Container>
             {showAddEvent ? (
@@ -77,7 +89,9 @@ const Profile = () => {
             )}
         </Container>
         <Container>
-            <Button onClick={()=> setShowAddEvent(true)}>Add Event</Button>
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <Button onClick={()=> setShowAddEvent(true)}>Add Event</Button>
+            </div>
             <EventList events={filteredEvents}
                         setEventDeleted={setEventDeleted}/>
         </Container>

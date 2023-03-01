@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-import { format } from 'date-fns'
 
 import './Schedule.css';
 import Event from '../Events/Event.jsx';
@@ -52,7 +51,7 @@ const Schedule = (props) => {
             // for (const event in props.events) {
                 props.events.map((event) => {
                 console.log("what is event:", event)
-                if (event.date == selectedDate) {
+                if (event.date === selectedDate) {
                     console.log("entering if")
                     setName(event.name);
                     setMaxCapacity(event.maxCapacity);
