@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 
 
 const Event = (props) => {
+    const [showConfirmSignUp, setShowConfirmSignUp] = useState(false);
+    const [signedUp, setSignedUp] = useState(false);
     // console.log("baby event props:", props)
-    // this component has props.setEventDeleted which will trigger useeffect in parent, profile
     // console.log("evnet props after click 23rd:", props)
     const handleDelete = () => {
         fetch(`http://localhost:8080/deleteEvent`, {
@@ -33,7 +34,21 @@ const Event = (props) => {
         <div>{props.date}</div>
         <div>{props.time}</div>
         <Button onClick={() =>{handleDelete()}}>Delete Event</Button>
-        <Button >Sign Up for this event </Button>
+        {showConfirmSignUp ? (
+            <Button variant="danger"
+                    onClick={() => {setSignedUp(true)}}>Confirm Sign Up </Button>
+
+        ): (
+            <Button onClick={() => {setShowConfirmSignUp(true)}}>Sign Up for this event </Button>
+
+        )}
+
+        {signedUp ? (
+            <div> You are signed up for this event </div>
+        ):(
+            null
+        )}
+        
         </>
     )
 }

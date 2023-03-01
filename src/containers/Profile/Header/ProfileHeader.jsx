@@ -8,10 +8,14 @@ const ProfileHeader = () => {
     return (
         <>
             <h1>NETFLIX CLONE</h1>
- 
-            <Link to='/'>
-                <Button variant="danger">Sign OUT</Button>
-            </Link>
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <Link to='/'>
+                    <Button variant="danger"
+                            // style={{float: 'right'}}
+                    >Sign OUT</Button>
+                </Link>
+            </div>
+            
         </>
     )
 }
